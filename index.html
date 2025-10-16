@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<!-- saved from url=(0060)file:///C:/Users/user/Downloads/simple_pendulum_chapter.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Determination of Acceleration Due to Gravity Using Simple Pendulum</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 60px 80px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .title-page {
+            text-align: center;
+            margin-bottom: 80px;
+            padding: 40px 0;
+            border-bottom: 3px solid #2c3e50;
+        }
+        
+        .chapter-title {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .chapter-subtitle {
+            font-size: 1.5em;
+            color: #555;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+        
+        .instructor-info {
+            margin-top: 50px;
+            font-size: 1.1em;
+            color: #2c3e50;
+        }
+        
+        .instructor-name {
+            font-weight: bold;
+            font-size: 1.3em;
+            color: #1a5490;
+            margin-top: 10px;
+        }
+        
+        h1 {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 1.5em;
+            color: #34495e;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #3498db;
+        }
+        
+        h3 {
+            font-size: 1.2em;
+            color: #555;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+        
+        p {
+            text-align: justify;
+            margin-bottom: 15px;
+            text-indent: 30px;
+        }
+        
+        .no-indent {
+            text-indent: 0;
+        }
+        
+        .figure {
+            margin: 30px 0;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+        
+        .figure img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .figure-caption {
+            font-style: italic;
+            color: #555;
+            margin-top: 10px;
+            font-size: 0.95em;
+            padding: 0 20px;
+        }
+        
+        .equation {
+            text-align: center;
+            margin: 25px 0;
+            font-size: 1.2em;
+            padding: 15px;
+            background-color: #f0f8ff;
+            border-left: 4px solid #3498db;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .objectives {
+            background-color: #e8f4f8;
+            padding: 20px 30px;
+            margin: 25px 0;
+            border-radius: 5px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .objectives ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .objectives li {
+            margin-bottom: 10px;
+        }
+        
+        .definition-box {
+            background-color: #fff9e6;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #f39c12;
+            border-radius: 3px;
+        }
+        
+        .important-note {
+            background-color: #ffe6e6;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-left: 5px solid #e74c3c;
+            border-radius: 3px;
+        }
+        
+        .procedure-steps {
+            counter-reset: step-counter;
+            margin: 20px 0;
+        }
+        
+        .procedure-steps li {
+            counter-increment: step-counter;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            position: relative;
+        }
+        
+        .procedure-steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -30px;
+            top: 0;
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            font-size: 0.9em;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .apparatus-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+            padding-left: 0;
+        }
+        
+        .apparatus-list li {
+            list-style-position: inside;
+            padding: 8px;
+            background-color: #f8f9fa;
+            border-left: 3px solid #3498db;
+        }
+        
+        .key-point {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .formula-derivation {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 40px;
+            }
+            
+            h1 {
+                page-break-before: always;
+            }
+            
+            .figure {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Title Page -->
+        <div class="title-page">
+            <div class="chapter-title">Practical # 1</div>
+            <div class="chapter-subtitle">Determination of Acceleration Due to Gravity (g)</div>
+            <div class="chapter-subtitle">Using Simple Pendulum Method</div>
+            <div class="instructor-info">
+                <p>Course Instructor:</p>
+                <p class="instructor-name">Dr. Irfan Toqeer</p>
+            </div>
+        </div>
+
+        <!-- Abstract -->
+        <div class="definition-box">
+            <h2 class="no-indent">Abstract</h2>
+            <p>This chapter presents a comprehensive study of the simple pendulum experiment, one of the fundamental practical methods used to determine the acceleration due to gravity (g). The simple pendulum provides an elegant and accessible approach to understanding periodic motion, harmonic oscillations, and the gravitational constant. Through this experimental method, students will gain hands-on experience with measurement techniques, data analysis, error calculation, and the application of theoretical physics principles to real-world observations.</p>
+        </div>
+
+        <!-- Learning Objectives -->
+        <div class="objectives">
+            <h2 class="no-indent">Learning Objectives</h2>
+            <ul>
+                <li>Understand the concept and properties of a simple pendulum</li>
+                <li>Derive the relationship between the time period and length of a simple pendulum</li>
+                <li>Learn proper experimental techniques for measuring oscillation periods</li>
+                <li>Calculate the acceleration due to gravity from experimental data</li>
+                <li>Analyze sources of error and calculate percentage uncertainty</li>
+                <li>Develop skills in graphical analysis and interpretation</li>
+                <li>Apply scientific methodology to validate theoretical predictions</li>
+            </ul>
+        </div>
+
+        <!-- Introduction -->
+        <h1>3.1 Introduction</h1>
+        
+        <p>The acceleration due to gravity, denoted by the symbol 'g', is one of the most important physical constants in classical mechanics. It represents the acceleration experienced by any object in free fall near the Earth's surface due to gravitational attraction. The standard value of g is approximately 9.81 m/s² at sea level, though this value varies slightly with latitude, altitude, and local geological conditions.</p>
+
+        <p>Understanding and measuring g accurately has profound implications across multiple fields of science and engineering. From predicting projectile motion to designing aerospace vehicles, from understanding planetary orbits to calibrating sensitive instruments, the value of g serves as a fundamental parameter in countless calculations and applications.</p>
+
+        <p>Among the various experimental methods available to determine g, the simple pendulum method stands out for its elegance, simplicity, and accessibility. This method has been used for centuries, dating back to Galileo Galilei's pioneering observations in the late 16th century. The beauty of this experiment lies in its ability to reveal deep physical principles using nothing more than a mass suspended from a string.</p>
+
+        <div class="figure">
+            <img src="3.1.jpg">
+            <p class="figure-caption"><strong>Figure 3.1:</strong> Basic structure of a simple pendulum showing the suspension point, string (length L), bob (mass m), and angular displacement (θ). The pendulum oscillates between extreme positions on either side of the equilibrium position.</p>
+        </div>
+
+        <h2>3.1.1 Historical Perspective</h2>
+
+        <p>The story of the pendulum begins with Galileo Galilei, who, according to legend, noticed the regular oscillations of a chandelier in the cathedral of Pisa around 1581. Using his pulse as a timer, Galileo observed that the period of oscillation remained constant regardless of the amplitude of swing (for small angles). This observation, known as the isochronism of the pendulum, laid the groundwork for future timekeeping devices.</p>
+
+        <p>Later, in 1656, Christiaan Huygens made a revolutionary advancement by using the pendulum principle to construct the first accurate pendulum clock. This innovation dramatically improved timekeeping precision and enabled more accurate scientific observations. The pendulum clock remained the most accurate timekeeper until the 20th century, when electronic and atomic clocks superseded it.</p>
+
+        <p>In the realm of gravimetry (the measurement of gravitational field strength), the simple pendulum method became a standard technique. Scientists used pendulum measurements to map variations in g across different geographical locations, contributing to our understanding of Earth's shape, density distribution, and geological structures.</p>
+
+        <h2>3.1.2 Importance of the Experiment</h2>
+
+        <p>This practical experiment serves multiple educational and scientific purposes. First, it provides students with direct experience in applying theoretical physics to practical measurements. The experiment reinforces understanding of periodic motion, harmonic oscillation, and the factors affecting oscillatory systems. Second, it develops essential laboratory skills including proper measurement techniques, systematic observation, and careful data recording.</p>
+
+        <p>Furthermore, this experiment introduces students to the concept of experimental uncertainty and error analysis. By comparing experimental results with the accepted value of g, students learn that all measurements contain uncertainty and that understanding these limitations is crucial for scientific work. The graphical method employed in this experiment also teaches valuable data analysis skills that are applicable across all scientific disciplines.</p>
+
+        <!-- Theory -->
+        <h1>3.2 Theoretical Background</h1>
+
+        <h2>3.2.1 What is a Simple Pendulum?</h2>
+
+        <div class="definition-box">
+            <p class="no-indent"><strong>Definition:</strong> A simple pendulum consists of a small, heavy body (called a bob) suspended from a fixed point by a light, inextensible string. When displaced from its equilibrium position and released, the pendulum oscillates back and forth under the influence of gravity.</p>
+        </div>
+
+        <p>For a system to be considered an ideal simple pendulum, several conditions must be satisfied. First, the mass of the bob should be concentrated at a single point, meaning the bob should be small compared to the length of the string. Second, the string should have negligible mass compared to the bob. Third, the string should be perfectly flexible and inextensible, meaning it doesn't stretch during oscillation. Fourth, there should be no friction at the point of suspension, and air resistance should be negligible. Finally, the amplitude of oscillation should be small (typically less than 10 degrees from the vertical).</p>
+
+        <p>In reality, no pendulum perfectly satisfies all these conditions, but with careful experimental design, we can create a system that closely approximates an ideal simple pendulum. The bob should be dense and compact (such as a metal sphere), the string should be thin but strong (like a thread or fine wire), and the amplitude should be kept small to ensure the small-angle approximation remains valid.</p>
+
+        <div class="figure"3.2.jpg">
+            <p class="figure-caption"><strong>Figure 3.2:</strong> Typical laboratory setup for simple pendulum experiment showing the retort stand, clamp, suspension point, inextensible thread, and spherical bob. The setup allows for easy adjustment of the pendulum length.</p>
+        </div>
+
+        <h2>3.2.2 Forces Acting on the Pendulum</h2>
+
+        <p>To understand the motion of a simple pendulum, we must analyze the forces acting on the bob at any instant during its oscillation. When the pendulum is displaced from its equilibrium position by an angle θ (theta) from the vertical, two forces act on the bob: the weight of the bob (mg) acting vertically downward, and the tension (T) in the string acting along the string toward the point of suspension.</p>
+
+        <p>The weight mg can be resolved into two components. One component, mg cos θ, acts along the string in the direction opposite to the tension. This component is balanced by the tension in the string. The other component, mg sin θ, acts perpendicular to the string, tangent to the arc of motion. This component is responsible for the restoring force that drives the pendulum back toward its equilibrium position.</p>
+
+        <div class="figure">
+            <img src="3.3.jpg">
+            <p class="figure-caption"><strong>Figure 3.3:</strong> Free body diagram showing all forces acting on the pendulum bob. The weight (mg) is resolved into components parallel and perpendicular to the string. The perpendicular component (mg sin θ) provides the restoring force.</p>
+        </div>
+
+        <p>The restoring force F acting on the bob is therefore F = -mg sin θ. The negative sign indicates that the force is directed toward the equilibrium position, opposite to the displacement. This restoring force is what causes the pendulum to oscillate. When the pendulum is released from a displaced position, this force accelerates it back toward equilibrium. As it passes through the equilibrium position, it has maximum velocity but zero restoring force. The momentum carries it past equilibrium to the opposite side, where the restoring force again acts to slow it down, eventually bringing it to rest before reversing direction.</p>
+
+        <h2>3.2.3 Small Angle Approximation</h2>
+
+        <p>The motion of a simple pendulum becomes mathematically tractable when we make the small angle approximation. For small angles measured in radians, we can use the mathematical relationship: sin θ ≈ θ. This approximation is remarkably accurate for small angles. For example, when θ = 10° (0.174 radians), sin θ = 0.1736, giving an error of less than 0.5%. As the angle decreases, the approximation becomes even more accurate.</p>
+
+        <p>When we apply this approximation, the restoring force becomes F = -mgθ. Since the arc length s (the displacement along the arc) is related to the angle by s = Lθ, where L is the length of the pendulum, we can write θ = s/L. Substituting this into the expression for force gives F = -mg(s/L) = -(mg/L)s. This equation shows that the restoring force is directly proportional to the displacement s, which is the defining characteristic of simple harmonic motion.</p>
+
+        <div class="important-note">
+            <p class="no-indent"><strong>Important Note:</strong> The small angle approximation is valid only when the angular displacement is less than about 15 degrees (0.26 radians). Beyond this angle, the pendulum motion deviates significantly from simple harmonic motion, and the period becomes dependent on amplitude. For accurate experimental results, always ensure that the amplitude of oscillation is kept small, preferably less than 10 degrees.</p>
+        </div>
+
+        <h2>3.2.4 Derivation of the Time Period Formula</h2>
+
+        <div class="formula-derivation">
+            <p class="no-indent"><strong>Mathematical Derivation:</strong></p>
+            
+            <p>Starting from Newton's second law, the equation of motion for the pendulum bob is:</p>
+            
+            <div class="equation">
+                F = ma = m(d²s/dt²)
+            </div>
+            
+            <p>Substituting the expression for the restoring force:</p>
+            
+            <div class="equation">
+                m(d²s/dt²) = -(mg/L)s
+            </div>
+            
+            <p>Simplifying by canceling mass m:</p>
+            
+            <div class="equation">
+                d²s/dt² = -(g/L)s
+            </div>
+            
+            <p>This is the standard differential equation for simple harmonic motion with angular frequency ω = √(g/L).</p>
+            
+            <p>The relationship between period T and angular frequency ω is:</p>
+            
+            <div class="equation">
+                T = 2π/ω = 2π/√(g/L) = 2π√(L/g)
+            </div>
+        </div>
+
+        <p>This fundamental equation T = 2π√(L/g) reveals several important insights about pendulum motion. First, the period depends on the length of the pendulum (L) and the acceleration due to gravity (g), but remarkably, it does not depend on the mass of the bob. This means that a heavy bob and a light bob attached to strings of the same length will have identical periods.</p>
+
+        <p>Second, the period is independent of the amplitude of oscillation (as long as the small angle approximation holds). This property, called isochronism, is what made pendulums so useful for timekeeping. Third, the period increases with the square root of length, meaning that to double the period, you must quadruple the length.</p>
+
+        <div class="definition-box">
+            <p class="no-indent"><strong>Key Formula:</strong></p>
+            <div class="equation">
+                T = 2π√(L/g)
+            </div>
+            <p class="no-indent">Where:</p>
+            <ul style="list-style-position: inside; margin-top: 10px;">
+                <li>T = Time period (seconds)</li>
+                <li>L = Length of pendulum (meters)</li>
+                <li>g = Acceleration due to gravity (m/s²)</li>
+                <li>π = 3.14159...</li>
+            </ul>
+        </div>
+
+        <h2>3.2.5 Rearranging to Find g</h2>
+
+        <p>Our objective in this experiment is to determine the value of g. Therefore, we need to rearrange the period equation to express g in terms of measurable quantities. Starting with:</p>
+
+        <div class="equation">
+            T = 2π√(L/g)
+        </div>
+
+        <p>Squaring both sides:</p>
+
+        <div class="equation">
+            T² = 4π²(L/g)
+        </div>
+
+        <p>Multiplying both sides by g and dividing by T²:</p>
+
+        <div class="equation">
+            g = 4π²L/T²
+        </div>
+
+        <p>This equation provides a direct method to calculate g if we measure the length L and the period T. However, for greater accuracy and to minimize random errors, we typically measure multiple values of L and T and use graphical analysis, as will be explained in the experimental procedure section.</p>
+
+        <p>We can also rearrange the equation to show a linear relationship between T² and L:</p>
+
+        <div class="equation">
+            T² = (4π²/g)L
+        </div>
+
+        <p>This equation has the form y = mx, where y = T², x = L, and the slope m = 4π²/g. This linear relationship is the basis for the graphical method used in this experiment. By plotting T² versus L, we obtain a straight line whose slope can be used to calculate g with high precision.</p>
+
+        <!-- Apparatus and Materials -->
+        <h1>3.3 Apparatus and Materials Required</h1>
+
+        <p>For successful completion of this experiment, the following apparatus and materials are needed. Each item plays a specific role in ensuring accurate measurements and reliable results. It is important to verify that all equipment is in good working condition before beginning the experiment.</p>
+
+        <ul class="apparatus-list">
+            <li>Retort stand with clamp</li>
+            <li>Metallic bob (spherical, typically brass or steel)</li>
+            <li>Inextensible thread (about 150 cm length)</li>
+            <li>Meter scale or measuring tape (minimum 1 meter)</li>
+            <li>Stopwatch (digital, with 0.01 second resolution)</li>
+            <li>Vernier calipers (for measuring bob diameter)</li>
+            <li>Split cork or clamp for securing thread</li>
+            <li>Protractor or angle marker (optional)</li>
+            <li>Graph paper (millimeter grid)</li>
+            <li>Pencil, ruler, and eraser</li>
+            <li>Calculator for computations</li>
+            <li>Laboratory notebook for recording data</li>
+        </ul>
+
+        <h2>3.3.1 Description of Key Components</h2>
+
+        <p><span class="key-point">Retort Stand and Clamp:</span> The retort stand provides a stable, vertical support for suspending the pendulum. It should be heavy enough to remain stable during oscillations. The clamp holds the thread firmly at the suspension point. Ensure the clamp is tightened securely to prevent the thread from slipping during the experiment.</p>
+
+        <p><span class="key-point">Metallic Bob:</span> The bob should be dense, compact, and spherical to approximate a point mass. Common choices include brass or steel spheres. The mass typically ranges from 20 to 100 grams. A spherical shape minimizes air resistance and ensures the center of mass coincides with the geometric center.</p>
+
+        <p><span class="key-point">Thread:</span> The thread must be inextensible (non-stretchable) and light. Strong cotton thread or nylon fishing line works well. The thread should be thin to minimize its mass but strong enough to support the bob without breaking. Avoid elastic materials like rubber bands.</p>
+
+        <p><span class="key-point">Stopwatch:</span> A digital stopwatch with at least 0.01 second resolution is essential. Modern smartphones typically have stopwatch apps with sufficient precision. The human reaction time (about 0.2 seconds) is a significant source of error, so measuring multiple oscillations helps minimize this effect.</p>
+
+        <p><span class="key-point">Meter Scale:</span> Used to measure the length of the pendulum from the point of suspension to the center of the bob. A rigid meter scale or measuring tape with millimeter graduations is required for accuracy.</p>
+
+        <!-- Experimental Procedure -->
+        <h1>3.4 Experimental Procedure</h1>
+
+        <h2>3.4.1 Setup and Preparation</h2>
+
+        <p>Begin by setting up the apparatus on a stable laboratory bench away from drafts or air currents that could affect the pendulum motion. The retort stand should be placed firmly on the bench, and if necessary, the base can be clamped to the bench for additional stability.</p>
+
+        <p>Attach one end of the thread to the metallic bob by tying a secure knot. If the bob has a hook or hole, thread the string through it and tie a knot that prevents the bob from slipping. The knot should be as small as possible to minimize its effect on the pendulum length measurement.</p>
+
+        <p>Pass the other end of the thread through a split cork or secure it in the clamp at the top of the retort stand. The thread should hang vertically when the pendulum is at rest. Ensure the suspension point does not allow lateral movement, as this would cause the pendulum to swing in an elliptical rather than planar motion.</p>
+
+        <div class="figure">
+            <img src="3.4.jpg">
+            <p class="figure-caption"><strong>Figure 3.4:</strong> Complete experimental setup showing the retort stand, suspended pendulum, and measurement tools. Note the vertical alignment and stable support structure.</p>
+        </div>
+
+        <h2>3.4.2 Measurement of Effective Length</h2>
+
+        <p>The effective length (L) of the simple pendulum is defined as the distance from the point of suspension to the center of mass of the bob. To measure this accurately, first measure the diameter of the bob using vernier calipers. Record this measurement carefully, as it will be needed to find the center of the bob.</p>
+
+        <p>Using the meter scale, measure the distance from the point of suspension (the lower edge of the clamp or cork) to the bottom of the bob. To this measurement, add half the diameter of the bob to find the distance to the center of the bob. This gives the effective length L.</p>
+
+        <div class="equation">
+            Effective Length (L) = Suspension point to bottom of bob + (Diameter of bob / 2)
+        </div>
+
+        <p>For the first observation, set the effective length to approximately 100 cm. This can be adjusted by moving the thread through the clamp. Ensure the thread is held firmly so that the length does not change during oscillations.</p>
+
+        <h2>3.4.3 Procedure for Time Period Measurement</h2>
+
+        <ol class="procedure-steps" style="margin-left: 40px; list-style-position: outside;">
+            <li>Displace the pendulum bob to one side by a small angle (less than 10 degrees from vertical). You can use a protractor to check the angle, or simply displace the bob by about 10-15 cm horizontally for a 100 cm pendulum. Mark the starting position if needed.</li>
+            
+            <li>Release the bob gently without giving it any push. The bob should oscillate in a single vertical plane. If it starts to move in an elliptical path, stop the motion, realign the bob, and start again.</li>
+            
+            <li>Allow the pendulum to complete 2-3 oscillations to establish steady motion. During these initial oscillations, position yourself to observe the bob clearly.</li>
+            
+            <li>Choose a reference point (such as the center of the equilibrium position) to mark when the bob completes an oscillation. Start the stopwatch at the instant the bob passes through this reference point moving in one direction.</li>
+            
+            <li>Count oscillations carefully. One complete oscillation consists of motion from the reference point, to one extreme, back through the reference point to the other extreme, and return to the reference point in the same direction of motion.</li>
+            
+            <li>Measure the time for 20 complete oscillations. Using multiple oscillations reduces the effect of reaction time errors. Stop the stopwatch when the bob completes the 20th oscillation.</li>
+            
+            <li>Record the total time for 20 oscillations. Calculate the time for one oscillation (the period T) by dividing the total time by 20.</li>
+            
+            <li>Repeat the measurement at least three times for the same length and calculate the average period. This helps minimize random errors.</li>
+            
+            <li>Change the length of the pendulum by adjusting the thread in the clamp. Reduce the length by about 10-15 cm for each subsequent observation.</li>
+            
+            <li>Repeat steps 1-8 for at least five different lengths, typically ranging from 100 cm down to 40 cm. Having multiple data points improves the accuracy of graphical analysis.</li>
+        </ol>
+
+        <div class="important-note">
+            <p class="no-indent"><strong>Safety Precautions:</strong></p>
+            <ul style="list-style-position: inside; margin-top: 10px;">
+                <li>Ensure the bob is securely attached to prevent it from flying off during oscillations</li>
+                <li>Keep fingers and other objects away from the path of the oscillating bob</li>
+                <li>Verify the retort stand is stable and won't tip over</li>
+                <li>Work in a clear space to avoid the pendulum hitting obstacles</li>
+                <li>If using a heavy bob, be cautious of the momentum it carries during oscillation</li>
+            </ul>
+        </div>
+
+        <!-- Observations and Data -->
+        <h1>3.5 Observations and Data Recording</h1>
+
+        <h2>3.5.1 Preliminary Measurements</h2>
+
+        <p>Before beginning the main observations, record the following preliminary measurements:</p>
+
+        <table>
+            <tbody><tr>
+                <th>Measurement</th>
+                <th>Value</th>
+                <th>Units</th>
+            </tr>
+            <tr>
+                <td>Diameter of bob (using vernier calipers)</td>
+                <td>______</td>
+                <td>cm</td>
+            </tr>
+            <tr>
+                <td>Radius of bob (diameter / 2)</td>
+                <td>______</td>
+                <td>cm</td>
+            </tr>
+            <tr>
+                <td>Number of oscillations counted</td>
+                <td>20</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>Least count of meter scale</td>
+                <td>0.1</td>
+                <td>cm</td>
+            </tr>
+            <tr>
+                <td>Least count of stopwatch</td>
+                <td>0.01</td>
+                <td>s</td>
+            </tr>
+        </tbody></table>
+
+        <h2>3.5.2 Main Observation Table</h2>
+
+        <p>Record your observations in a systematic manner using a table format. The table should include all measured values and calculated results. Here is a sample format:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th rowspan="2">Sr. No.</th>
+                    <th rowspan="2">Length L<br>(cm)</th>
+                    <th colspan="3">Time for 20 oscillations (s)</th>
+                    <th rowspan="2">Mean Time<br>(s)</th>
+                    <th rowspan="2">Period T<br>(s)</th>
+                    <th rowspan="2">T²<br>(s²)</th>
+                </tr>
+                <tr>
+                    <th>Trial 1</th>
+                    <th>Trial 2</th>
+                    <th>Trial 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>100.0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>85.0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>70.0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>55.0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>40.0</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>3.5.3 Sample Calculations</h2>
+
+        <p>For each set of observations, perform the following calculations:</p>
+
+        <p><span class="key-point">Mean Time:</span> Add the three trial times and divide by 3.</p>
+        <div class="equation">
+            Mean Time = (Trial 1 + Trial 2 + Trial 3) / 3
+        </div>
+
+        <p><span class="key-point">Period (T):</span> Divide the mean time by the number of oscillations (20).</p>
+        <div class="equation">
+            T = Mean Time / 20
+        </div>
+
+        <p><span class="key-point">T² (T squared):</span> Multiply the period by itself.</p>
+        <div class="equation">
+            T² = T × T
+        </div>
+
+        <!-- Graphical Analysis -->
+        <h1>3.6 Graphical Analysis</h1>
+
+        <h2>3.6.1 Plotting T² versus L Graph</h2>
+
+        <p>The graphical method provides a more accurate determination of g compared to calculating g separately for each observation and then averaging. This is because the graph helps minimize random errors and gives more weight to the overall trend in the data rather than individual measurements.</p>
+
+        <p>From the equation T² = (4π²/g)L, we know that a graph of T² (on the y-axis) versus L (on the x-axis) should yield a straight line passing through the origin. The slope of this line equals 4π²/g, from which we can calculate g.</p>
+
+        <h3>Steps for Graph Plotting:</h3>
+
+        <ol class="procedure-steps" style="margin-left: 40px; list-style-position: outside;">
+            <li>Choose appropriate scales for both axes. The scales should be convenient (such as 1 cm = 0.1 s² for T² axis and 1 cm = 5 cm for L axis) and should utilize most of the graph paper.</li>
+            
+            <li>Label the x-axis as "Length L (cm)" or "Length L (m)" and the y-axis as "T² (s²)". Include units in the axis labels.</li>
+            
+            <li>Mark the origin (0,0) clearly. In theory, the line should pass through the origin, but experimental errors may cause slight deviation.</li>
+            
+            <li>Plot each data point carefully. Use a sharp pencil and mark each point with a small cross (×) or dot (•) with a circle around it.</li>
+            
+            <li>Draw the best-fit straight line through the plotted points. This line should pass as close as possible to all points, with roughly equal numbers of points on either side of the line. Use a transparent ruler and draw a thin, clear line.</li>
+            
+            <li>The line may or may not pass exactly through the origin due to experimental errors. However, if the deviation is large, review your data for possible systematic errors.</li>
+        </ol>
+
+        <div class="figure">
+            <img src="3.5.jpg">
+            <p class="figure-caption"><strong>Figure 3.5:</strong> Sample graph showing T² plotted against L. The data points lie on a straight line, confirming the theoretical relationship. The slope of this line is used to calculate the acceleration due to gravity.</p>
+        </div>
+
+        <h2>3.6.2 Determining the Slope</h2>
+
+        <p>To find the slope of the line, select two points that lie on the best-fit line (not necessarily data points). These points should be far apart to minimize errors in slope determination. Let these points be (L₁, T₁²) and (L₂, T₂²).</p>
+
+        <p>The slope m is calculated as:</p>
+        <div class="equation">
+            Slope (m) = (T₂² - T₁²) / (L₂ - L₁)
+        </div>
+
+        <p>Ensure you use the same units throughout. If L is in centimeters, convert it to meters before calculating g. If L is in meters and T in seconds, the slope will be in s²/m.</p>
+
+        <h2>3.6.3 Calculating g from the Slope</h2>
+
+        <p>From the relationship T² = (4π²/g)L, we know that:</p>
+        <div class="equation">
+            Slope = 4π²/g
+        </div>
+
+        <p>Rearranging to solve for g:</p>
+        <div class="equation">
+            g = 4π² / Slope
+        </div>
+
+        <p>Substituting π = 3.14159:</p>
+        <div class="equation">
+            g = 39.478 / Slope
+        </div>
+
+        <p>Calculate the value of g and express it in appropriate units (m/s²). Compare this experimental value with the standard accepted value of g = 9.81 m/s².</p>
+
+        <!-- Results and Analysis -->
+        <h1>3.7 Results and Calculations</h1>
+
+        <h2>3.7.1 Experimental Result</h2>
+
+        <p>After performing all measurements, calculations, and graphical analysis, record your final results:</p>
+
+        <table>
+            <tbody><tr>
+                <th>Parameter</th>
+                <th>Value</th>
+                <th>Units</th>
+            </tr>
+            <tr>
+                <td>Slope of T² vs L graph</td>
+                <td>______</td>
+                <td>s²/m</td>
+            </tr>
+            <tr>
+                <td>Calculated value of g</td>
+                <td>______</td>
+                <td>m/s²</td>
+            </tr>
+            <tr>
+                <td>Standard value of g</td>
+                <td>9.81</td>
+                <td>m/s²</td>
+            </tr>
+            <tr>
+                <td>Absolute error</td>
+                <td>______</td>
+                <td>m/s²</td>
+            </tr>
+            <tr>
+                <td>Percentage error</td>
+                <td>______</td>
+                <td>%</td>
+            </tr>
+        </tbody></table>
+
+        <h2>3.7.2 Error Calculation</h2>
+
+        <p><span class="key-point">Absolute Error:</span> The difference between the experimental value and the standard value.</p>
+        <div class="equation">
+            Absolute Error = |Experimental value - Standard value|
+        </div>
+
+        <p><span class="key-point">Percentage Error:</span> Expresses the error as a percentage of the standard value.</p>
+        <div class="equation">
+            Percentage Error = (Absolute Error / Standard Value) × 100%
+        </div>
+
+        <p>A percentage error less than 5% is generally considered excellent for this experiment. Errors between 5-10% are acceptable, while errors greater than 10% suggest significant problems in experimental technique or apparatus that should be investigated.</p>
+
+        <!-- Sources of Error -->
+        <h1>3.8 Sources of Error and Precautions</h1>
+
+        <h2>3.8.1 Systematic Errors</h2>
+
+        <p>Systematic errors are consistent, repeatable errors that affect all measurements in the same way. In the simple pendulum experiment, common systematic errors include:</p>
+
+        <p><span class="key-point">Incorrect Length Measurement:</span> If the effective length is not measured correctly (for example, if the radius of the bob is not added), all calculations of g will be systematically off. This is one of the most significant sources of error in this experiment. To minimize this error, carefully measure the bob's diameter with vernier calipers and ensure you measure from the true suspension point to the center of the bob.</p>
+
+        <p><span class="key-point">Large Amplitude Oscillations:</span> When the amplitude is too large, the small angle approximation breaks down, and the period becomes amplitude-dependent. This causes the measured period to be longer than predicted by theory, resulting in an underestimate of g. Always keep the angular displacement below 10 degrees.</p>
+
+        <p><span class="key-point">Air Resistance:</span> Air friction opposes the motion of the bob, causing the amplitude to decrease over time (damping). This effect becomes more pronounced for longer observation times and for bobs with large surface area relative to their mass. Using a dense, compact bob and measuring the period over a reasonable number of oscillations helps minimize this error.</p>
+
+        <p><span class="key-point">Flexibility of Support:</span> If the retort stand or the support structure is not rigid, it may oscillate slightly along with the pendulum, effectively changing the pendulum's length during motion. This can be detected by observing whether the support moves during oscillations. Using a heavy, stable retort stand and ensuring all clamps are tightened securely minimizes this error.</p>
+
+        <h2>3.8.2 Random Errors</h2>
+
+        <p>Random errors are unpredictable variations that cause measurements to scatter around the true value. They can be reduced by taking multiple measurements and calculating averages.</p>
+
+        <p><span class="key-point">Reaction Time:</span> The human operator has a finite reaction time (typically 0.2-0.3 seconds) when starting and stopping the stopwatch. This introduces uncertainty in time measurements. However, by measuring the time for multiple oscillations (such as 20), the reaction time error is divided by the number of oscillations, making it negligible. For example, a 0.3 second reaction time error in measuring 20 oscillations contributes only 0.015 seconds to the period measurement.</p>
+
+        <p><span class="key-point">Parallax Error:</span> When observing the pendulum bob to determine when it reaches a reference point, the observer's eye must be at the same level as the reference point. Viewing from an angle introduces parallax error. Position your eye at the level of the reference point and take care to observe the bob's position consistently.</p>
+
+        <p><span class="key-point">Judgment of Oscillation Completion:</span> Determining exactly when an oscillation is complete requires judgment and can vary slightly between observations. Using a clear reference point and establishing a consistent method for counting helps minimize this error.</p>
+
+        <p><span class="key-point">Environmental Disturbances:</span> Air currents from fans, open windows, or people moving near the pendulum can disturb its motion. Conduct the experiment in a calm environment away from sources of drafts.</p>
+
+        <h2>3.8.3 Precautions to Minimize Errors</h2>
+
+        <ol class="procedure-steps" style="margin-left: 40px; list-style-position: outside;">
+            <li>Ensure the bob is perfectly spherical and the thread is as light as possible compared to the bob's mass.</li>
+            
+            <li>Use a thread that is inextensible (does not stretch). Test this by hanging the bob and observing whether the length changes over time.</li>
+            
+            <li>Keep the amplitude of oscillation small (less than 10 degrees) throughout the experiment.</li>
+            
+            <li>Ensure the pendulum oscillates in a single vertical plane. If it starts to move in an ellipse, stop and restart the measurement.</li>
+            
+            <li>Make sure there is no friction at the point of suspension. The thread should be able to swing freely without twisting or catching.</li>
+            
+            <li>Take multiple readings (at least three trials) for each length and average them to reduce random errors.</li>
+            
+            <li>Use a stopwatch with fine resolution (0.01 seconds) and measure time for at least 20 oscillations to minimize reaction time errors.</li>
+            
+            <li>Position your eye at the level of the reference point when observing oscillations to avoid parallax errors.</li>
+            
+            <li>Allow 2-3 preliminary oscillations before starting time measurement to ensure steady motion.</li>
+            
+            <li>Conduct the experiment in a draft-free environment to minimize the effect of air currents.</li>
+            
+            <li>Check that all apparatus is stable and secure before beginning measurements.</li>
+            
+            <li>When measuring length, account for the radius of the bob to determine the effective length correctly.</li>
+        </ol>
+
+        <!-- Discussion -->
+        <h1>3.9 Discussion and Interpretation</h1>
+
+        <h2>3.9.1 Verification of Theoretical Predictions</h2>
+
+        <p>The simple pendulum experiment provides an elegant verification of several theoretical predictions from classical mechanics. First, the straight-line graph of T² versus L confirms that the period is proportional to the square root of length, exactly as predicted by theory. If the relationship were different (for example, if T were directly proportional to L), the graph would not be linear.</p>
+
+        <p>Second, the independence of the period from the mass of the bob can be verified by repeating the experiment with bobs of different masses but the same length. Students will observe that the period remains essentially unchanged, confirming that g is a constant property of the gravitational field, not dependent on the object's mass.</p>
+
+        <p>Third, the isochronism of the pendulum (independence of period from amplitude) can be tested by measuring the period for different initial amplitudes. For small angles, the period should remain constant, but for larger angles, deviations will be observed, demonstrating the limits of the small angle approximation.</p>
+
+        <h2>3.9.2 Physical Significance of Results</h2>
+
+        <p>The value of g obtained from this experiment represents the local acceleration due to gravity at the location where the experiment is performed. This value is not universal but varies slightly depending on factors such as latitude, altitude, and local geological structures.</p>
+
+        <p>At sea level and 45 degrees latitude, the standard value of g is 9.80665 m/s². However, at the equator, g is approximately 9.78 m/s² due to the Earth's rotation and equatorial bulge. At the poles, g is approximately 9.83 m/s². As altitude increases, g decreases because the distance from Earth's center increases. At the top of Mount Everest, g is about 9.77 m/s².</p>
+
+        <p>Local variations in g also occur due to density differences in Earth's crust. Regions with dense rock or ore deposits have slightly higher g values, while areas above salt domes or low-density sediments have lower values. Precise measurements of g variations are used in geophysical prospecting to locate mineral deposits and understand geological structures.</p>
+
+        <h2>3.9.3 Comparison with Other Methods</h2>
+
+        <p>The simple pendulum method is one of several approaches to measuring g. Other common methods include:</p>
+
+        <p><span class="key-point">Free Fall Method:</span> Measuring the time for an object to fall through a known distance. This direct method is conceptually simple but requires sophisticated timing equipment to achieve high accuracy.</p>
+
+        <p><span class="key-point">Compound Pendulum:</span> Using a physical pendulum (an extended object) rather than a simple pendulum. This method can be more accurate but requires more complex analysis.</p>
+
+        <p><span class="key-point">Kater's Pendulum:</span> A specialized reversible pendulum designed for high-precision measurements. This method eliminates some systematic errors inherent in the simple pendulum.</p>
+
+        <p><span class="key-point">Spring-Mass System:</span> Using the oscillation of a mass attached to a spring. This method measures g indirectly through the spring constant.</p>
+
+        <p>The simple pendulum method, while not the most accurate, offers an excellent balance of simplicity, conceptual clarity, and reasonable precision, making it ideal for educational purposes.</p>
+
+        <!-- Applications -->
+        <h1>3.10 Applications and Extensions</h1>
+
+        <h2>3.10.1 Historical Applications</h2>
+
+        <p>The simple pendulum has played a crucial role in the history of science and technology. As mentioned earlier, pendulum clocks were the most accurate timekeepers from the 17th to the 20th century. The precision of these clocks enabled advances in astronomy, navigation, and physics.</p>
+
+        <p>In the 18th and 19th centuries, pendulums were used to measure variations in g around the world, contributing to our understanding of Earth's shape and density distribution. These measurements revealed that Earth is not a perfect sphere but is slightly flattened at the poles (oblate spheroid).</p>
+
+        <p>Foucault's pendulum, demonstrated by Jean Bernard Léon Foucault in 1851, provided direct evidence of Earth's rotation. A large pendulum suspended from a high ceiling maintains its plane of oscillation as Earth rotates beneath it, causing the apparent direction of oscillation to change over time.</p>
+
+        <h2>3.10.2 Modern Applications</h2>
+
+        <p>While electronic and atomic clocks have replaced pendulum clocks for precision timekeeping, pendulum principles still find applications in modern technology:</p>
+
+        <p><span class="key-point">Seismometers:</span> Earthquake detection devices use pendulum-like mechanisms to detect ground motion. When the ground shakes, the pendulum's inertia causes it to remain relatively stationary while its support moves, allowing the relative motion to be recorded.</p>
+
+        <p><span class="key-point">Gravimeters:</span> Sensitive instruments that measure tiny variations in gravitational field strength use pendulum principles or related oscillatory systems. These are employed in geophysical surveys, oil and mineral exploration, and monitoring volcanic activity.</p>
+
+        <p><span class="key-point">Metronomes:</span> Musical timekeepers use pendulum motion to maintain steady tempo. The adjustable period of a pendulum (by changing its length) makes it ideal for this purpose.</p>
+
+        <p><span class="key-point">Pendulum Cranes:</span> Some cranes and aerial tramways use pendulum dynamics in their design to understand and control swinging loads.</p>
+
+        <h2>3.10.3 Extended Investigations</h2>
+
+        <p>Students interested in extending this experiment can explore several interesting variations:</p>
+
+        <p><span class="key-point">Effect of Bob Mass:</span> Systematically vary the mass of the bob while keeping length constant to verify that the period is truly independent of mass.</p>
+
+        <p><span class="key-point">Effect of Amplitude:</span> Measure the period for various initial amplitudes to determine at what angle the small angle approximation breaks down significantly.</p>
+
+        <p><span class="key-point">Damped Oscillations:</span> Study how air resistance affects the amplitude over time. Plot amplitude versus time and investigate whether the damping follows exponential decay.</p>
+
+        <p><span class="key-point">Coupled Pendulums:</span> Suspend two pendulums from the same support and observe energy transfer between them, demonstrating resonance and coupled oscillators.</p>
+
+        <p><span class="key-point">Chaotic Pendulum:</span> Construct a double pendulum (a pendulum attached to the end of another pendulum) to observe chaotic motion, where small changes in initial conditions lead to dramatically different outcomes.</p>
+
+        <!-- Conclusion -->
+        <h1>3.11 Conclusion</h1>
+
+        <p>The determination of the acceleration due to gravity using a simple pendulum represents a classic experiment that beautifully demonstrates the connection between theoretical physics and experimental observation. Through careful measurement and analysis, students can determine the value of g with reasonable accuracy using nothing more than a mass on a string.</p>
+
+        <p>This experiment reinforces several fundamental concepts in physics: periodic motion, simple harmonic oscillation, the relationship between period and length, and the universality of gravitational acceleration. It also develops essential laboratory skills including systematic observation, accurate measurement, data recording, graphical analysis, and error evaluation.</p>
+
+        <p>Beyond its educational value, this experiment connects to important historical developments in physics and continues to have relevance in modern applications. The principles learned here—that simple systems can reveal fundamental physical constants, that mathematical models can predict natural phenomena, and that careful experimentation can test theoretical predictions—form the foundation of scientific methodology.</p>
+
+        <p>The graphical method employed in this experiment demonstrates how plotting data can reveal underlying relationships and minimize the impact of random errors. The straight-line graph of T² versus L not only confirms the theoretical prediction but also provides a robust method for extracting the value of g from experimental data.</p>
+
+        <p>Students completing this experiment should appreciate that while the pendulum appears simple, it embodies rich physics that has fascinated scientists for centuries. From Galileo's observations in Pisa to modern gravimeters, the humble pendulum continues to teach us about the physical world and the methods by which we explore it.</p>
+
+        <!-- Review Questions -->
+        <h1>3.12 Review Questions and Problems</h1>
+
+        <h2>3.12.1 Conceptual Questions</h2>
+
+        <ol style="margin-left: 40px; margin-top: 15px;">
+            <li>Explain why the period of a simple pendulum is independent of the mass of the bob.</li>
+            <li>What is meant by the "small angle approximation" and why is it necessary for the simple pendulum equation to be valid?</li>
+            <li>How would the period of a pendulum change if the same experiment were conducted on the Moon, where gravity is about 1/6 that of Earth?</li>
+            <li>Why do we measure the time for multiple oscillations rather than timing a single oscillation?</li>
+            <li>Explain why the graph of T² versus L is a straight line and what information we can extract from its slope.</li>
+            <li>What would happen to the period if you used an elastic string instead of an inextensible thread?</li>
+            <li>Describe how air resistance affects pendulum motion and how this might influence your experimental results.</li>
+            <li>Why is it important that the pendulum oscillates in a single vertical plane rather than in an elliptical path?</li>
+        </ol>
+
+        <h2>3.12.2 Numerical Problems</h2>
+
+        <ol style="margin-left: 40px; margin-top: 15px;">
+            <li>A simple pendulum has a length of 80 cm. Calculate its period at a location where g = 9.8 m/s². (Answer: T ≈ 1.79 seconds)</li>
+            <li>A pendulum makes 30 oscillations in 60 seconds. What is its period? If the length is 1 meter, calculate the value of g. (Answer: T = 2 s, g ≈ 9.87 m/s²)</li>
+            <li>The period of a simple pendulum is 2.5 seconds. If g = 9.81 m/s², what is the length of the pendulum? (Answer: L ≈ 1.55 m)</li>
+            <li>If the length of a pendulum is increased by a factor of 4, by what factor does its period increase? (Answer: Factor of 2)</li>
+            <li>A student measures the period of a 100 cm pendulum as 2.05 seconds. Calculate the experimental value of g. If the standard value is 9.81 m/s², what is the percentage error? (Answer: g ≈ 9.46 m/s², error ≈ 3.6%)</li>
+        </ol>
+
+        <!-- References -->
+        <h1>3.13 References and Further Reading</h1>
+
+        <div style="margin-left: 40px; margin-top: 20px; line-height: 2;">
+            <p class="no-indent">1. Halliday, D., Resnick, R., &amp; Walker, J. (2014). <em>Fundamentals of Physics</em> (10th ed.). Wiley.</p>
+            
+            <p class="no-indent">2. Young, H. D., &amp; Freedman, R. A. (2016). <em>University Physics with Modern Physics</em> (14th ed.). Pearson.</p>
+            
+            <p class="no-indent">3. Serway, R. A., &amp; Jewett, J. W. (2018). <em>Physics for Scientists and Engineers</em> (10th ed.). Cengage Learning.</p>
+            
+            <p class="no-indent">4. Tipler, P. A., &amp; Mosca, G. (2007). <em>Physics for Scientists and Engineers</em> (6th ed.). W. H. Freeman.</p>
+            
+            <p class="no-indent">5. Taylor, J. R. (1997). <em>An Introduction to Error Analysis: The Study of Uncertainties in Physical Measurements</em> (2nd ed.). University Science Books.</p>
+            
+            <p class="no-indent">6. Baker, G. L., &amp; Blackburn, J. A. (2005). <em>The Pendulum: A Case Study in Physics</em>. Oxford University Press.</p>
+            
+            <p class="no-indent">7. Matthews, M. R., Gauld, C. F., &amp; Stinner, A. (Eds.). (2005). <em>The Pendulum: Scientific, Historical, Philosophical and Educational Perspectives</em>. Springer.</p>
+            
+            <p class="no-indent">8. Nelson, R. A., &amp; Olsson, M. G. (1986). The pendulum—Rich physics from a simple system. <em>American Journal of Physics</em>, 54(2), 112-121.</p>
+        </div>
+
+        <!-- Laboratory Report Guidelines -->
+        <h1>3.14 Laboratory Report Guidelines</h1>
+
+        <p>When preparing your laboratory report for this experiment, include the following sections in order:</p>
+
+        <h2>Title Page</h2>
+        <p class="no-indent">Include the experiment title, your name, course information, date of experiment, and instructor's name.</p>
+
+        <h2>Objective</h2>
+        <p class="no-indent">State clearly what you aimed to determine or verify in this experiment.</p>
+
+        <h2>Apparatus</h2>
+        <p class="no-indent">List all equipment and materials used, with brief descriptions where necessary.</p>
+
+        <h2>Theory</h2>
+        <p class="no-indent">Provide the theoretical background, including the derivation of the period formula and the equation used to calculate g.</p>
+
+        <h2>Procedure</h2>
+        <p class="no-indent">Describe the experimental method in sufficient detail that another person could replicate your work.</p>
+
+        <h2>Observations and Data</h2>
+        <p class="no-indent">Present your measurements in well-organized tables with appropriate headings and units.</p>
+
+        <h2>Calculations</h2>
+        <p class="no-indent">Show sample calculations for period, T², slope determination, and calculation of g. Include the graph with proper labeling.</p>
+
+        <h2>Results</h2>
+        <p class="no-indent">State your final value of g with units. Calculate and report the percentage error.</p>
+
+        <h2>Sources of Error</h2>
+        <p class="no-indent">Discuss possible sources of error in your experiment and their likely effects on results.</p>
+
+        <h2>Conclusion</h2>
+        <p class="no-indent">Summarize what you learned, whether your results agree with accepted values, and any insights gained from the experiment.</p>
+
+        <div style="margin-top: 60px; padding-top: 30px; border-top: 2px solid #ddd; text-align: center; color: #777;">
+            <p>End of Chapter 3</p>
+            <p style="margin-top: 20px;">© 2024 Physics Laboratory Manual</p>
+            <p>Course Instructor: Dr. Irfan Toqeer</p>
+        </div>
+    </div>
+
+</body></html>
